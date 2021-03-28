@@ -23,7 +23,7 @@ dynmap_url = "https://camarosa.xyz/img/dynmap.png"
 dynmap_icon = "dynmap.png"
 urlretrieve(dynmap_url, dynmap_icon)
 
-with Diagram(filename="mainnetwork", show=True, direction="TB"):
+with Diagram(filename="main_network", show=True, direction="TB"):
 
     with Cluster("Dedicated Ubuntu Server"):
 
