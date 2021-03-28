@@ -27,4 +27,4 @@ with Diagram(filename="game_servers_ungrouped", show=True, direction="TB"):
             misc = Docker("Misc Servers")
             servers = [gmod, snapshot, terraria, misc, minigames, creative, modded, survival, resource]
 
-        pterodactyl >> servers
+            pterodactyl >> servers

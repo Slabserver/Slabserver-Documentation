@@ -14,24 +14,24 @@ with Diagram(filename="game_servers_grouped", show=True, direction="TB"):
 
     with Cluster("Dedicated Ubuntu Server"):
 
-        with Cluster("Game Servers - Other servers"):
-            gmod = Docker("Gmod")
-            snapshot = Docker("Snapshot")
-            terraria = Docker("Terraria")
-            misc = Docker("Misc Servers")
-            nonbungee = [gmod, snapshot, terraria, misc]
+        with Cluster(""):
+            with Cluster("Game Servers - Other servers"):
+                gmod = Docker("Gmod")
+                snapshot = Docker("Snapshot")
+                terraria = Docker("Terraria")
+                misc = Docker("Misc Servers")
+                nonbungee = [gmod, snapshot, terraria, misc]
 
-        with Cluster("Game Servers - Bungee Network 2"):
-            proxy2 = Docker("Proxy Network 2")
-            creative = Docker("Creative")
-            modded = Docker("Modded")
-            minigames = Docker("Minigames")
-            proxy2 >> Edge(color="darkgreen") >> [minigames, creative, modded]
+            with Cluster("Game Servers - Bungee Network 2"):
+                proxy2 = Docker("Proxy Network 2")
+                creative = Docker("Creative")
+                modded = Docker("Modded")
+                minigames = Docker("Minigames")
+                proxy2 >> Edge(color="darkgreen") >> [minigames, creative, modded]
 
-        with Cluster("Game Servers - Bungee Network 1"):
-            proxy1 = Docker("Proxy Network 1")
-            survival = Docker("Survival")
-            resource = Docker("Resource")
-            proxy1 >> Edge(color="darkgreen") << survival
-            proxy1 >> Edge(color="darkgreen") << resource
-    
+            with Cluster("Game Servers - Bungee Network 1"):
+                proxy1 = Docker("Proxy Network 1")
+                survival = Docker("Survival")
+                resource = Docker("Resource")
+                proxy1 >> Edge(color="darkgreen") << survival
+                proxy1 >> Edge(color="darkgreen") << resource
