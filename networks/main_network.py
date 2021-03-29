@@ -25,12 +25,12 @@ urlretrieve(dynmap_url, dynmap_icon)
 
 with Diagram(filename="main_network", show=True, direction="LR"):
 
-    applications = Discord("#applications")
+    # applications = Discord("#applications")
     ingamechat = Discord("#ingamechat")
 
     with Cluster("Dedicated Ubuntu Server"):
 
-        applicationbot = Docker("Application Bot")
+        # applicationbot = Docker("Application Bot")
 
         dynmap = Custom("Dynmap", dynmap_icon)
         paddingdynmap = Blank("") 
@@ -48,11 +48,11 @@ with Diagram(filename="main_network", show=True, direction="LR"):
             proxy1 - Edge(penwidth="0.0") -  padding2
 
         with Cluster("MySQL / MariaDB"):  
-            maindb = MariaDB("MySQL Databases")
+            maindb = MariaDB("Server Databases")
             phpmyadmin = Custom("phpMyAdmin", phpmyadmin_icon)
 
-    applications >> Edge(color="#7289DA") >> applicationbot
-    applicationbot >> proxy1
+    # applications >> Edge(color="#7289DA") >> applicationbot
+    # applicationbot >> proxy1
 
     survival >> maindb
     resource >> maindb

@@ -26,7 +26,7 @@ with Diagram(filename="game_servers_grouped", show=True, direction="TB"):
             creative = Docker("Creative")
             modded = Docker("Modded")
             minigames = Docker("Minigames")
-            proxy2 >> [minigames, creative, modded]
+            proxy2 >> Edge(color="darkgreen") >> [minigames, creative, modded]
 
         with Cluster("Game Servers - Bungee Network 1"):
             proxy1 = Docker("Proxy Network 1")
