@@ -48,14 +48,14 @@ with Diagram(filename="main_network", show=True, direction="LR"):
             proxy1 - Edge(penwidth="0.0") -  padding2
 
         with Cluster("MySQL / MariaDB"):  
-            maindb = MariaDB("Server Databases")
+            maindb = MariaDB("Databases")
             phpmyadmin = Custom("phpMyAdmin", phpmyadmin_icon)
 
     # applications >> Edge(color="#7289DA") >> applicationbot
     # applicationbot >> proxy1
 
-    survival >> maindb
-    resource >> maindb
+    survival >> Edge() << maindb
+    resource >> Edge() << maindb
     maindb << phpmyadmin
     survival >> Edge(color="#7289DA") >> ingamechat
     resource  - Edge(penwidth="0.0") - paddingdynmap

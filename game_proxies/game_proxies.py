@@ -27,7 +27,7 @@ with Diagram(filename="game_proxies", show=True):
             proxy1 = Docker("Proxy Network 1")
 
         with Cluster("MySQL / MariaDB"):  
-            maindb = MariaDB("Proxy Databases")
+            maindb = MariaDB("Databases")
             phpmyadmin = Custom("phpMyAdmin", phpmyadmin_icon)
 
     applications >> Edge(color="#7289DA") >> applicationbot

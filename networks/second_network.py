@@ -15,8 +15,6 @@ with Diagram(filename="second_network", show=True):
 
     with Cluster("Dedicated Ubuntu Server"):
 
-        applicationbot = Docker("Application Bot")
-
         with Cluster("Bungee Network 2"):
             proxy2 = Docker("Proxy 2")
             modded = Docker("Modded")
@@ -27,9 +25,5 @@ with Diagram(filename="second_network", show=True):
             proxy2 >> Edge(color="darkgreen") >> creative
             proxy2 >> Edge(color="darkgreen") >> minigames
 
-    applications = Discord("#applications")
     ingamechat = Discord("#modded_ingamechat")
-
-    applications >> applicationbot
-    applicationbot >> proxy2
     modded >> ingamechat
