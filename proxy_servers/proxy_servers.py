@@ -12,7 +12,7 @@ phpmyadmin_url = "https://upload.wikimedia.org/wikipedia/commons/4/4f/PhpMyAdmin
 phpmyadmin_icon = "phpmyadmin.png"
 urlretrieve(phpmyadmin_url, phpmyadmin_icon)
 
-with Diagram(filename="game_proxies", show=True):
+with Diagram(filename="proxy_servers", show=True):
     
     applications = Discord("#applications")
 

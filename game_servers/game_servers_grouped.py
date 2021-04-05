@@ -4,6 +4,7 @@ from urllib.request import urlretrieve
 from diagrams import Cluster, Diagram, Edge
 from diagrams.onprem.container import Docker
 from diagrams.custom import Custom
+from diagrams.generic.blank import Blank
 
 #Pterodactyl
 pterodactyl_url = "https://avatars.githubusercontent.com/u/16179146"
@@ -15,18 +16,18 @@ with Diagram(filename="game_servers_grouped", show=True, direction="TB"):
     with Cluster("Dedicated Ubuntu Server"):
 
         with Cluster("Game Servers - Other servers"):
+            misc = Docker("Misc. Servers")
             gmod = Docker("Gmod")
-            snapshot = Docker("Snapshot")
             terraria = Docker("Terraria")
-            misc = Docker("Misc Servers")
-            nonbungee = [gmod, snapshot, terraria, misc]
+            snapshot = Docker("Snapshot")
+            nonbungee = [misc, gmod, terraria, snapshot]
 
         with Cluster("Game Servers - Bungee Network 2"):
             proxy2 = Docker("Proxy Network 2")
             creative = Docker("Creative")
             modded = Docker("Modded")
             minigames = Docker("Minigames")
-            proxy2 >> Edge(color="darkgreen") >> [minigames, creative, modded]
+            proxy2 >> Edge(color="darkgreen") >> [minigames, modded, creative]
 
         with Cluster("Game Servers - Bungee Network 1"):
             proxy1 = Docker("Proxy Network 1")
@@ -34,3 +35,4 @@ with Diagram(filename="game_servers_grouped", show=True, direction="TB"):
             resource = Docker("Resource")
             proxy1 >> Edge(color="darkgreen") << survival
             proxy1 >> Edge(color="darkgreen") << resource
+

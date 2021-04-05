@@ -16,6 +16,8 @@ with Diagram(filename="game_servers_ungrouped", show=True, direction="TB"):
         pterodactyl = Custom("Pterodactyl", pterodactyl_icon)
 
         with Cluster("Game Servers"):
+            proxy1 = Docker("Proxy Network 1")
+            proxy2 = Docker("Proxy Network 2")
             survival = Docker("Survival")
             resource = Docker("Resource")
             creative = Docker("Creative")
@@ -24,7 +26,9 @@ with Diagram(filename="game_servers_ungrouped", show=True, direction="TB"):
             gmod = Docker("Gmod")
             snapshot = Docker("Snapshot")
             terraria = Docker("Terraria")
-            misc = Docker("Misc Servers")
-            servers = [gmod, snapshot, terraria, misc, minigames, creative, modded, survival, resource]
+            misc = Docker("Misc. Servers")
 
-            pterodactyl >> servers
+            servers = [misc, gmod, terraria, snapshot, minigames, modded, creative, resource, survival, proxy2, proxy1]
+
+            pterodactyl >> Edge(color="#004da4") >> servers
+           
