@@ -23,14 +23,14 @@ with Diagram(filename="game_servers_grouped", show=True, direction="TB"):
             nonbungee = [misc, gmod, terraria, snapshot]
 
         with Cluster("Game Servers - Bungee Network 2"):
-            proxy2 = Docker("Proxy Network 2")
+            proxy2 = Docker("Proxy 2")
             creative = Docker("Creative")
             modded = Docker("Modded")
             minigames = Docker("Minigames")
-            proxy2 >> Edge(color="darkgreen") >> [minigames, modded, creative]
+            proxy2 >> Edge(color="darkgreen") >> [creative, modded, minigames]
 
         with Cluster("Game Servers - Bungee Network 1"):
-            proxy1 = Docker("Proxy Network 1")
+            proxy1 = Docker("Proxy 1")
             survival = Docker("Survival")
             resource = Docker("Resource")
             proxy1 >> Edge(color="darkgreen") << survival

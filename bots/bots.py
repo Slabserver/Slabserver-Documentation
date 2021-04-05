@@ -23,5 +23,6 @@ with Diagram(filename="bots", show=True, direction="TB"):
             snackerinactivitybot = Docker("Snacker/Inactvity Bot")
             musicbot = Docker("Music Bot")
 
-        bots = [ applicationbot, modbot, emojirolesbot, playerlistbot, snackerinactivitybot, musicbot]
+        bots = [musicbot, playerlistbot, emojirolesbot, snackerinactivitybot, applicationbot]
         pterodactyl >> Edge(color="#004da4") >> bots
+        pterodactyl >> Edge(color="#004da4") << modbot

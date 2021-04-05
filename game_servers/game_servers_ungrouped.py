@@ -16,8 +16,8 @@ with Diagram(filename="game_servers_ungrouped", show=True, direction="TB"):
         pterodactyl = Custom("Pterodactyl", pterodactyl_icon)
 
         with Cluster("Game Servers"):
-            proxy1 = Docker("Proxy Network 1")
-            proxy2 = Docker("Proxy Network 2")
+            proxy1 = Docker("Proxy 1")
+            proxy2 = Docker("Proxy 2")
             survival = Docker("Survival")
             resource = Docker("Resource")
             creative = Docker("Creative")

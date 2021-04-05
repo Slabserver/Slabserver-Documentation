@@ -18,13 +18,14 @@ with Diagram(filename="proxy_servers", show=True):
 
     with Cluster("Dedicated Ubuntu Server"):
 
-        applicationbot = Docker("Application Bot")
+        with Cluster("Bots"): 
+            applicationbot = Docker("Application Bot")
 
         with Cluster("Game Servers - Bungee Network 2"):
-            proxy2 = Docker("Proxy Network 2")
+            proxy2 = Docker("Proxy 2")
 
         with Cluster("Game Servers - Bungee Network 1"):
-            proxy1 = Docker("Proxy Network 1")
+            proxy1 = Docker("Proxy 1")
 
         with Cluster("MySQL / MariaDB"):  
             maindb = MariaDB("Databases")
