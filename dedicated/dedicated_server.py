@@ -14,24 +14,23 @@ with Diagram(filename="dedicated_server", show=True, direction="TB"):
 
     with Cluster("Dedicated Ubuntu Server"):
 
-        with Cluster(""):
-            with Cluster("Other servers"):
-                gmod = Docker("Gmod")
-                snapshot = Docker("Snapshot")
-                terraria = Docker("Terraria")
-                misc = Docker("Misc Servers")
-                nonbungee = [gmod, snapshot, terraria, misc]
+        with Cluster("Other servers"):
+            gmod = Docker("Gmod")
+            snapshot = Docker("Snapshot")
+            terraria = Docker("Terraria")
+            misc = Docker("Misc Servers")
+            nonbungee = [gmod, snapshot, terraria, misc]
 
-            with Cluster("Bungee Network 2"):
-                proxy2 = Docker("Proxy 2")
-                creative = Docker("Creative")
-                modded = Docker("Modded")
-                minigames = Docker("Minigames")
-                proxy2 >> Edge(color="darkgreen") >> [minigames, creative, modded]
+        with Cluster("Bungee Network 2"):
+            proxy2 = Docker("Proxy 2")
+            creative = Docker("Creative")
+            modded = Docker("Modded")
+            minigames = Docker("Minigames")
+            proxy2 >> Edge(color="darkgreen") >> [minigames, creative, modded]
 
-            with Cluster("Bungee Network 1"):
-                proxy1 = Docker("Proxy 1")
-                survival = Docker("Survival")
-                resource = Docker("Resource")
-                proxy1 >> Edge(color="darkgreen") << survival
-                proxy1 >> Edge(color="darkgreen") << resource
+        with Cluster("Bungee Network 1"):
+            proxy1 = Docker("Proxy 1")
+            survival = Docker("Survival")
+            resource = Docker("Resource")
+            proxy1 >> Edge(color="darkgreen") << survival
+            proxy1 >> Edge(color="darkgreen") << resource
