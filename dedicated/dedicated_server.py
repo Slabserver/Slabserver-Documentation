@@ -15,11 +15,10 @@ with Diagram(filename="dedicated_server", show=True, direction="TB"):
     with Cluster("Dedicated Ubuntu Server"):
 
         with Cluster("Other servers"):
-            gmod = Docker("Gmod")
-            snapshot = Docker("Snapshot")
-            terraria = Docker("Terraria")
             misc = Docker("Misc Servers")
-            nonbungee = [gmod, snapshot, terraria, misc]
+            snapshot = Docker("Snapshot")
+            gamenight = Docker("Gamenight")
+            nonbungee = [gamenight, snapshot, misc]
 
         with Cluster("Bungee Network 2"):
             proxy2 = Docker("Proxy 2")

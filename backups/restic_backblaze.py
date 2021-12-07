@@ -29,14 +29,13 @@ with Diagram(filename="restic_backblaze", show=True, direction="TB"):
             creative = Docker("Creative")
             modded = Docker("Modded")
             minigames = Docker("Minigames")
-            gmod = Docker("Gmod")
             snapshot = Docker("Snapshot")
-            terraria = Docker("Terraria")
+            gamenight = Docker("Gamenight")
             misc = Docker("Misc. Servers")
 
         restic = Custom("Restic", restic_icon)
 
-        servers = [misc, gmod, terraria, snapshot, minigames, modded, creative, resource, survival, proxy2, proxy1]
+        servers = [misc, snapshot, gamenight, minigames, modded, creative, resource, survival, proxy2, proxy1]
 
         servers << Edge(color="#a81c2b") >> restic
         restic << Edge(color="#a81c2b") >> backblaze

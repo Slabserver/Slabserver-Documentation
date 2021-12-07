@@ -17,10 +17,9 @@ with Diagram(filename="game_servers_grouped", show=True, direction="TB"):
 
         with Cluster("Game Servers - Other servers"):
             misc = Docker("Misc. Servers")
-            gmod = Docker("Gmod")
-            terraria = Docker("Terraria")
             snapshot = Docker("Snapshot")
-            nonbungee = [misc, gmod, terraria, snapshot]
+            gamenight = Docker("Gamenight")
+            nonbungee = [misc, snapshot, gamenight]
 
         with Cluster("Game Servers - Bungee Network 2"):
             proxy2 = Docker("Proxy 2")

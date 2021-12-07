@@ -23,12 +23,11 @@ with Diagram(filename="game_servers_ungrouped", show=True, direction="TB"):
             creative = Docker("Creative")
             modded = Docker("Modded")
             minigames = Docker("Minigames")
-            gmod = Docker("Gmod")
+            gamenight = Docker("Gamenight")
             snapshot = Docker("Snapshot")
-            terraria = Docker("Terraria")
             misc = Docker("Misc. Servers")
 
-            servers = [misc, gmod, terraria, snapshot, minigames, modded, creative, resource, survival, proxy2, proxy1]
+            servers = [misc, snapshot, gamenight, minigames, modded, creative, resource, survival, proxy2, proxy1]
 
             pterodactyl >> Edge(color="#004da4") >> servers
            
